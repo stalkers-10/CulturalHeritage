@@ -1,8 +1,4 @@
-ion-content {
-ion-header{
-    
-  ion-toolbar {
-    ion-item-divider {
+ion-item-divider {
       --background: none;
       display: flex;
       justify-content: space-around;
@@ -18,9 +14,3 @@ ion-header{
         font-size: larger;
       }
     }
-    ion-searchbar{
-        margin-top: 10px;
-    }
-  }
-}
-}
