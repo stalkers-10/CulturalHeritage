@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 
 @Component({
@@ -8,8 +9,21 @@ import { Component } from '@angular/core';
   standalone: false,
  
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
+  testData: any;
   
-  constructor() {}
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit() {
+    this.apiService.getTestData().subscribe({
+      next: (data) => {
+        this.testData = data;
+        console.log('Received data from backend:', data);
+      },
+      error: (err) => {
+        console.error('Error connecting to backend:', err);
+      }
+    });
+  }
 
 }
